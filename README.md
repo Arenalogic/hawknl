@@ -1,4 +1,4 @@
-# hawknl
+# HawkNL
 
 Hawk NL Version 1.70
 
@@ -21,3 +21,42 @@ Hawk NL Version 1.70
   Boston, MA  02111-1307, USA.
 
   Or go to http://www.gnu.org/copyleft/lgpl.html
+
+## Building with CMake
+
+HawkNL now supports building with CMake. To build the library:
+
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+### CMake Options
+
+- `BUILD_SHARED_LIBS`: Build shared libraries (default: ON)
+- `HAWKNL_INCLUDE_IPX`: Include IPX support (Windows only) (default: ON)
+- `HAWKNL_INCLUDE_LOOPBACK`: Include loopback support (default: ON)
+- `HAWKNL_INCLUDE_SERIAL`: Include serial support (default: ON)
+
+### Installing
+
+```bash
+cmake --install .
+```
+
+## Using with vcpkg
+
+HawkNL can be installed using vcpkg:
+
+```bash
+vcpkg install hawknl
+```
+
+To use HawkNL in your CMake project:
+
+```cmake
+find_package(HawkNL CONFIG REQUIRED)
+target_link_libraries(your_target PRIVATE HawkNL::NL)
+```

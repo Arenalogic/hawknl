@@ -1,0 +1,11 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+if(WIN32)
+    find_dependency(WinSock)
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/HawkNLTargets.cmake")
+
+check_required_components(NL) 
